@@ -1,0 +1,64 @@
+{
+  "name": "cinemaddict",
+  "version": "1.0.0",
+  "description": "личный проект киноман",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --mode development",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "dev:watch": "cross-env NODE_ENV=development webpack --mode development --watch",
+    "start": "cross-env NODE_ENV=development webpack serve --mode development --open",
+    "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiCkEyZzZ/cinemaddict.git"
+  },
+  "keywords": [
+    "js",
+    "html",
+    "scss",
+    "webpack"
+  ],
+  "author": "Mikhail Zhuravlev<mikhail.f.zhuravlev@gmail.com>",
+  "license": "ISC",
+  "browserslist": "> 0.25%, not dead",
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/eslint-parser": "^7.13.10",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-private-methods": "^7.13.0",
+    "@babel/plugin-syntax-class-properties": "^7.12.13",
+    "@babel/preset-env": "^7.13.10",
+    "babel-eslint": "v11.0.0-beta.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^8.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.1.2",
+    "eslint": "^7.22.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-loader": "^4.0.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.3.9",
+    "node-sass": "^5.0.0",
+    "postcss-loader": "^5.2.0",
+    "postcss-preset-env": "^6.7.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.4.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "moment": "^2.29.1",
+    "normalize.css": "^8.0.1"
+  },
+  "bugs": {
+    "url": "https://github.com/MiCkEyZzZ/cinemaddict/issues"
+  },
+  "homepage": "https://github.com/MiCkEyZzZ/cinemaddict#readme"
+}
