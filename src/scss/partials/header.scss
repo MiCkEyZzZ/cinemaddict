@@ -1,0 +1,28 @@
+.header {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  padding-bottom: 80px;
+}
+
+.header__logo {
+  margin-right: 68px;
+  flex-basis: 165px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.logo {
+  cursor: default;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.logo--smaller {
+  animation: none;
+  font-size: var(--font-size);
+  letter-spacing: normal;
+}

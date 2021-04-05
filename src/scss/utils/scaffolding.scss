@@ -1,0 +1,58 @@
+html {
+  background: #121213 url('/img/background.png') no-repeat 60% 0;
+  display: flex;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  justify-content: center;
+  min-width: 1240px;
+  position: relative;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+body {
+  box-sizing: border-box;
+  max-width: 1240px;
+  padding: 28px 20px 0;
+  width: 100%;
+}
+
+.hide-overflow {
+  overflow: hidden;
+}
+
+a:link {
+  opacity: 1;
+  text-decoration: none;
+  transition: opacity 0.1s ease-in;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+button {
+  cursor: pointer;
+}
+
+.details {
+  overflow: hidden;
+}
+
+.no-result {
+  min-height: 300px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
