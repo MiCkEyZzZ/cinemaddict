@@ -26,6 +26,9 @@ const films = generateFilms(FILM_COUNT)
 const headerComponent = new HeaderComponent()
 render(siteHeaderElement, headerComponent, RenderPosition.BEFOREEND)
 
+const footerComponent = new FooterComponent()
+render(siteFooterElement, footerComponent, RenderPosition.BEFOREEND)
+
 const navigateComponent = new NavigationComponent()
 render(siteMainElement, navigateComponent, RenderPosition.BEFOREEND)
 
@@ -62,6 +65,3 @@ films.slice(0, FILM_COUNT_EXTRA)
 
 films.slice(0, FILM_COUNT_EXTRA)
     .forEach(film => render(siteFilmContainerElement[1], new FilmCardComponent(film), RenderPosition.BEFOREEND))
-
-const footerComponent = new FooterComponent()
-render(siteFooterElement, footerComponent, RenderPosition.BEFOREEND)
