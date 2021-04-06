@@ -10,16 +10,14 @@ import {createFilmsListTemplate} from './templates/films-list.template'
 import {createFilmCardTemplate} from './templates/film-card.template'
 import {createLoadMoreTemplate} from './templates/loadmore.template'
 
+import {render} from './utils/renders'
+
 const FILM_COUNT = 5
 const FILM_COUNT_EXTRA = 2
 
 const siteHeaderElement = document.querySelector(`.header`)
 const siteMainElement = document.querySelector(`.main`)
 const siteFooterElement = document.querySelector(`.footer`)
-
-const render = (container, template, place = `beforeend`) => {
-  container.insertAdjacentHTML(place, template)
-}
 
 render(siteHeaderElement, createHeaderTemplate())
 render(siteMainElement, createNavigationTemplate())
