@@ -1,20 +1,8 @@
-import {createElement} from '../utils/renders'
+import {Component} from '../core/component'
 import {createNavigationTemplate} from '../templates/navigation.template'
 
-export class NavigationComponent {
-  constructor() {
-    this.element = null
-  }
-
+export class NavigationComponent extends Component {
   getTemplate() {
     return createNavigationTemplate()
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate())
-    }
-
-    return this.element
   }
 }

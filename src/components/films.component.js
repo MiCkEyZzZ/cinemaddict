@@ -1,20 +1,8 @@
-import {createElement} from '../utils/renders'
+import {Component} from '../core/component'
 import {createFilmsTemplate} from '../templates/films.template'
 
-export class FilmsComponent {
-  constructor() {
-    this.element = null
-  }
-
+export class FilmsComponent extends Component {
   getTemplate() {
     return createFilmsTemplate()
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate())
-    }
-
-    return this.element
   }
 }

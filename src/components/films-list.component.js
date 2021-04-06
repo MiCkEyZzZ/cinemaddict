@@ -1,8 +1,10 @@
-import {createElement} from '../utils/renders'
+import {Component} from '../core/component'
 import {createFilmsListTemplate} from '../templates/films-list.template'
 
-export class FilmsListComponent {
+export class FilmsListComponent extends Component {
   constructor(className, title, isHiddenTitle) {
+    super()
+
     this.element = null
     this.className = className
     this.title = title
@@ -11,13 +13,5 @@ export class FilmsListComponent {
 
   getTemplate() {
     return createFilmsListTemplate(this.className, this.title, this.isHiddenTitle)
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate())
-    }
-
-    return this.element
   }
 }

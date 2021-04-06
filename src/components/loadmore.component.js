@@ -1,20 +1,8 @@
-import {createElement} from '../utils/renders'
+import {Component} from '../core/component'
 import {createLoadMoreTemplate} from '../templates/loadmore.template'
 
-export class LoadMoreComponent {
-  constructor() {
-    this.element = null
-  }
-
+export class LoadMoreComponent extends Component {
   getTemplate() {
     return createLoadMoreTemplate()
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate())
-    }
-
-    return this.element
   }
 }
