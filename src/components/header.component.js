@@ -1,20 +1,8 @@
-import {createElement} from '../utils/renders'
+import {Component} from '../core/component'
 import {createHeaderTemplate} from '../templates/header.template'
 
-export class HeaderComponent {
-  constructor() {
-    this.element = null
-  }
-
+export class HeaderComponent extends Component {
   getTemplate() {
     return createHeaderTemplate()
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate())
-    }
-
-    return this.element
   }
 }

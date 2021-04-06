@@ -1,21 +1,15 @@
-import {createElement} from '../utils/renders'
+import {Component} from '../core/component'
 import {createFilmCardTemplate} from '../templates/film-card.template'
 
-export class FilmCardComponent {
+export class FilmCardComponent extends Component {
   constructor(films) {
+    super()
+
     this.element = null
     this.films = films
   }
 
   getTemplate() {
-    return createFilmCardTemplate()
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate())
-    }
-
-    return this.element
+    return createFilmCardTemplate(this.films)
   }
 }

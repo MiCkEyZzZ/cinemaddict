@@ -1,20 +1,8 @@
-import {createElement} from '../utils/renders'
+import {Component} from '../core/component'
 import {createSortTemplate} from '../templates/sort.template'
 
-export class SortComponent {
-  constructor() {
-    this.element = null
-  }
-
+export class SortComponent extends Component {
   getTemplate() {
     return createSortTemplate()
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate())
-    }
-
-    return this.element
   }
 }
