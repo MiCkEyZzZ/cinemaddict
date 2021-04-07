@@ -2,6 +2,7 @@ import {createElement} from '../utils/renders'
 
 export class Component {
   #element
+  callback = {}
 
   constructor() {
     this.#element = null

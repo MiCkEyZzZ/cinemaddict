@@ -2,7 +2,6 @@ import {Component} from '../core/component'
 import {createFilmsListTemplate} from '../templates/films-list.template'
 
 export class FilmsListComponent extends Component {
-  #element
   #className
   #title
   #isHiddenTitle
@@ -10,7 +9,6 @@ export class FilmsListComponent extends Component {
   constructor(className, title, isHiddenTitle) {
     super()
 
-    this.#element = null
     this.#className = className
     this.#title = title
     this.#isHiddenTitle = isHiddenTitle
