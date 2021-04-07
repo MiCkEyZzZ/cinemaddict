@@ -6,7 +6,7 @@ export class LoadMoreComponent extends Component {
     return createLoadMoreTemplate()
   }
 
-  setHandleClick(cb) {
-    this.getElement().addEventListener(`click`, cb)
+  setHandleClick(callback) {
+    this.getElement().addEventListener(`click`, callback)
   }
 }

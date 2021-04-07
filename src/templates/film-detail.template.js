@@ -1,4 +1,4 @@
-const createControlBtn = (name, labelText, isActive) => {
+const createControlBtnTemplate = (name, labelText, isActive) => {
   return `
     <input 
       type="checkbox" 
@@ -14,28 +14,82 @@ const createControlBtn = (name, labelText, isActive) => {
   `
 }
 
-export const createFilmDetailTemplate = () => {
-  const title = `The Great Flamarion`
-  const original = `The Great Flamarion`
-  const poster = `/src/img/the-great-flamarion.jpg`
-  const age = `18+`
-  const rating = `8.9`
-  const description = `The film opens following a murder at a cabaret in Mexico City in 1936, and then presents the events leading up to it in flashback. The Great Flamarion (Erich von Stroheim) is an arrogant, friendless, and misogynous marksman who displays his trick gunshot act in the vaudeville circuit. His show features a beautiful assistant, Connie (Mary Beth Hughes) and her drunken husband Al (Dan Duryea), Flamarion's other assistant. Flamarion falls in love with Connie, the movie's femme fatale, and is soon manipulated by her into killing her no good husband during one of their acts.`
-  const comment = `4`
-  const director = `Anthony Mann`
-  const writers = `Anne Wigton, Heinz Herald, Richard Weil`
-  const actors = `Erich von Stroheim, Mary Beth Hughes, Dan Duryea`
-  const release = `30 March 1945`
-  const runtime = `1h 18m`
-  const country = `USA`
+const createCommentsTemplate = () => {
+  return `
+    <li class="film-details__comment">
+      <span class="film-details__comment-emoji">
+        <img src="/src/img/smile.png" width="55" height="55" alt="emoji-smile">
+      </span>
+      <div>
+        <p class="film-details__comment-text">Interesting setting and a good cast</p>
+        <p class="film-details__comment-info">
+          <span class="film-details__comment-author">Tim Macoveev</span>
+          <span class="film-details__comment-day">2019/12/31 23:59</span>
+          <button class="film-details__comment-delete">Delete</button>
+        </p>
+      </div>
+    </li>
+  `
+}
 
-  const isWatchlist = true
-  const isWatched = true
-  const isFavorite = true
+const createCommentEmotionTemplate = () => {
+  return `
+      <input 
+        id="emoji-smile" 
+        name="comment-emoji" 
+        type="radio" 
+        value="smile"
+        class="film-details__emoji-item visually-hidden"
+      > 
+      <label class="film-details__emoji-label" for="emoji-smile">
+        <img src="/src/img/smile.png" width="30" height="30" alt="emoji">
+      </label>
+    `
+}
 
-  const watchlistClassName = createControlBtn(`watchlist`, `Add to watchlist`, isWatchlist)
-  const watchedClassName = createControlBtn(`watched`, `Already watched`, isWatched)
-  const favoriteClass = createControlBtn(`favorite`, `Add to favorites`, isFavorite)
+const createSelectEmotionMarkup = () => {
+  return `<img src="/src/img/smile.png" width="55" height="55" alt="emoji">`
+}
+
+const generateGenreTemplate = (genres) => {
+  return Array.from(genres).map(genre => {
+    return `<span class="film-details__genre">${genre}</span>`
+  })
+}
+
+export const createFilmDetailTemplate = (film) => {
+  const {
+    filmInfo,
+    isWatchlist,
+    isWatched,
+    isFavorite,
+    comments
+  } = film
+
+  const {
+    title,
+    original,
+    poster,
+    age,
+    rating,
+    description,
+    director,
+    writers,
+    actors,
+    release,
+    runtime,
+    country,
+    genres
+  } = filmInfo
+
+  const commentItem = comments.map(comment => createCommentsTemplate(comment))
+  const commentEmotion = createCommentEmotionTemplate()
+  const emotionMarkup = createSelectEmotionMarkup()
+  const genresItems = generateGenreTemplate(genres)
+
+  const watchlistClassName = createControlBtnTemplate(`watchlist`, `Add to watchlist`, isWatchlist)
+  const watchedClassName = createControlBtnTemplate(`watched`, `Already watched`, isWatched)
+  const favoriteClass = createControlBtnTemplate(`favorite`, `Add to favorites`, isFavorite)
 
   return `
     <section class="film-details">
@@ -91,9 +145,7 @@ export const createFilmDetailTemplate = () => {
                   <tr class="film-details__row">
                     <td class="film-details__term">Genres</td>
                     <td class="film-details__cell">
-                      <span class="film-details__genre">Drama</span>
-                      <span class="film-details__genre">Film-Noir</span>
-                      <span class="film-details__genre">Mystery</span></td>
+                      ${genresItems}
                   </tr>
                 </table>
       
@@ -110,91 +162,24 @@ export const createFilmDetailTemplate = () => {
 
           <div class="form-details__bottom-container">
             <section class="film-details__comments-wrap">
-              <h3 class="film-details__comments-title">Comments <span class="film-details__comments-count">${comment}</span></h3>
+              <h3 class="film-details__comments-title">Comments <span class="film-details__comments-count">${comments}</span></h3>
       
               <ul class="film-details__comments-list">
-                <li class="film-details__comment">
-                  <span class="film-details__comment-emoji">
-                    <img src="/src/img/smile.png" width="55" height="55" alt="emoji-smile">
-                  </span>
-                  <div>
-                    <p class="film-details__comment-text">Interesting setting and a good cast</p>
-                    <p class="film-details__comment-info">
-                      <span class="film-details__comment-author">Tim Macoveev</span>
-                      <span class="film-details__comment-day">2019/12/31 23:59</span>
-                      <button class="film-details__comment-delete">Delete</button>
-                    </p>
-                  </div>
-                </li>
-                <li class="film-details__comment">
-                  <span class="film-details__comment-emoji">
-                    <img src="/src/img/sleeping.png" width="55" height="55" alt="emoji-sleeping">
-                  </span>
-                  <div>
-                    <p class="film-details__comment-text">Booooooooooring</p>
-                    <p class="film-details__comment-info">
-                      <span class="film-details__comment-author">John Doe</span>
-                      <span class="film-details__comment-day">2 days ago</span>
-                      <button class="film-details__comment-delete">Delete</button>
-                    </p>
-                  </div>
-                </li>
-                <li class="film-details__comment">
-                  <span class="film-details__comment-emoji">
-                    <img src="/src/img/puke.png" width="55" height="55" alt="emoji-puke">
-                  </span>
-                  <div>
-                    <p class="film-details__comment-text">Very very old. Meh</p>
-                    <p class="film-details__comment-info">
-                      <span class="film-details__comment-author">John Doe</span>
-                      <span class="film-details__comment-day">2 days ago</span>
-                      <button class="film-details__comment-delete">Delete</button>
-                    </p>
-                  </div>
-                </li>
-                <li class="film-details__comment">
-                  <span class="film-details__comment-emoji">
-                    <img src="/src/img/angry.png" width="55" height="55" alt="emoji-angry">
-                  </span>
-                  <div>
-                    <p class="film-details__comment-text">Almost two hours? Seriously?</p>
-                    <p class="film-details__comment-info">
-                      <span class="film-details__comment-author">John Doe</span>
-                      <span class="film-details__comment-day">Today</span>
-                      <button class="film-details__comment-delete">Delete</button>
-                    </p>
-                  </div>
-                </li>
+                ${commentItem}
               </ul>
       
               <div class="film-details__new-comment">
-                <div for="add-emoji" class="film-details__add-emoji-label"></div>
+                <div for="add-emoji" class="film-details__add-emoji-label">${emotionMarkup}</div>
       
                 <label class="film-details__comment-label">
-                  <textarea class="film-details__comment-input" placeholder="Select reaction below and write comment here" name="comment"></textarea>
+                  <textarea 
+                    name="comment"
+                    placeholder="Select reaction below and write comment here" 
+                    class="film-details__comment-input" 
+                  ></textarea>
                 </label>
       
-                <div class="film-details__emoji-list">
-                  <input class="film-details__emoji-item visually-hidden" name="comment-emoji" type="radio" id="emoji-smile" value="smile">
-                  <label class="film-details__emoji-label" for="emoji-smile">
-                    <img src="/src/img/smile.png" width="30" height="30" alt="emoji">
-                  </label>
-      
-                  <input class="film-details__emoji-item visually-hidden" name="comment-emoji" type="radio" id="emoji-sleeping" value="sleeping">
-                  <label class="film-details__emoji-label" for="emoji-sleeping">
-                    <img src="/src/img/sleeping.png" width="30" height="30" alt="emoji">
-                  </label>
-      
-                  <input class="film-details__emoji-item visually-hidden" name="comment-emoji" type="radio" id="emoji-puke" value="puke">
-                  <label class="film-details__emoji-label" for="emoji-puke">
-                    <img src="/src/img/puke.png" width="30" height="30" alt="emoji">
-                  </label>
-      
-                  <input class="film-details__emoji-item visually-hidden" name="comment-emoji" type="radio" id="emoji-angry" value="angry">
-                  <label class="film-details__emoji-label" for="emoji-angry">
-                    <img src="/src/img/angry.png" width="30" height="30" alt="emoji">
-                  </label>
-                </div>
+                <div class="film-details__emoji-list">${commentEmotion}</div>
               </div>
             </section>
           </div>

@@ -50,6 +50,7 @@ let showingFilmsCount = SHOWING_FILM_COUNT_ON_START
 films.slice(0, showingFilmsCount)
     .forEach(film => render(siteFilmContainer, new FilmCardComponent(film), RenderPosition.BEFOREEND))
 
+
 const siteFilmsList = siteFilms.querySelector('.films-list')
 const loadMoreButton = new LoadMoreComponent()
 render(siteFilmsList, loadMoreButton, RenderPosition.BEFOREEND)

@@ -155,6 +155,8 @@ const DESCRIPTIONS = [
    labor for public works, profiting by undercutting skilled labor costs and receiving bribes. Andy launders the money using the alias "Randall Stephens".`
 ]
 
+const TEXT = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet varius magna, non porta ligula feugiat eget. Fusce tristique felis at fermentum pharetra. Aliquam id orci ut lectus varius viverra. Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante. Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum. Sed blandit, eros vel aliquam faucibus, purus ex euismod diam, eu luctus nunc ante ut dui. Sed sed nisi sed augue convallis suscipit in sed felis. Aliquam erat volutpat. Nunc fermentum tortor ac porta dapibus. In rutrum ac purus sit amet tempus.`
+
 const TITLES = [
   `The Dance Of Life`,
   `Sagebrush Trail`,
@@ -172,6 +174,6 @@ const HUNDRED_YEARS = 100
 
 const THREE_DAY_IN_MS = 1000 * 60 * 60 * 24 * 3
 
-const POSTERS_PATH = `/src/img`
+const POSTERS_PATH = `/src/img/`
 
-export default {ACTORS, COUNTRIES, WRITERS, DIRECTORS, GENRES, USERS, EMOTIONS, DESCRIPTIONS, MAX_LENGTH_DESCRIPTION, TITLES, POSTERS_PATH, HUNDRED_YEARS, THREE_DAY_IN_MS}
+export {ACTORS, COUNTRIES, WRITERS, DIRECTORS, GENRES, USERS, EMOTIONS, DESCRIPTIONS, MAX_LENGTH_DESCRIPTION, TITLES, POSTERS_PATH, HUNDRED_YEARS, THREE_DAY_IN_MS, TEXT}
