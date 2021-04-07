@@ -10,12 +10,13 @@ import {LoadMoreComponent} from './components/loadmore.component'
 import {NavigationComponent} from './components/navigation.component'
 import {SortComponent} from './components/sort.component'
 
-import {render, RenderPosition} from './utils/renders'
+import {remove, render, RenderPosition} from './utils/renders'
 import {generateFilms} from './mocks/films'
 
-const FILM_COUNT = 5
+const FILM_COUNT = 35
 const FILM_COUNT_EXTRA = 2
 const SHOWING_FILM_COUNT_ON_START = 5
+const SHOWING_FILM_COUNT_BY_BUTTON = 5
 
 const siteHeaderElement = document.querySelector(`.header`)
 const siteMainElement = document.querySelector(`.main`)
@@ -44,7 +45,7 @@ render(siteFilms, filmsListComponentAll, RenderPosition.BEFOREEND)
 
 const siteFilmContainer = siteFilms.querySelector('.films-list .films-list__container')
 
-const showingFilmsCount = SHOWING_FILM_COUNT_ON_START
+let showingFilmsCount = SHOWING_FILM_COUNT_ON_START
 
 films.slice(0, showingFilmsCount)
     .forEach(film => render(siteFilmContainer, new FilmCardComponent(film), RenderPosition.BEFOREEND))
@@ -52,6 +53,18 @@ films.slice(0, showingFilmsCount)
 const siteFilmsList = siteFilms.querySelector('.films-list')
 const loadMoreButton = new LoadMoreComponent()
 render(siteFilmsList, loadMoreButton, RenderPosition.BEFOREEND)
+
+loadMoreButton.setHandleClick(() => {
+  const prevFilmsCount = showingFilmsCount
+  showingFilmsCount = showingFilmsCount + SHOWING_FILM_COUNT_BY_BUTTON
+
+  films.slice(prevFilmsCount, showingFilmsCount)
+      .forEach(film => render(siteFilmContainer, new FilmCardComponent(film), RenderPosition.BEFOREEND))
+
+  if (showingFilmsCount >= films.length) {
+    remove(loadMoreButton)
+  }
+})
 
 const filmsListComponentTop = new FilmsListComponent(`films-list--extra`, `Most commented`, false)
 const filmsListComponentMost = new FilmsListComponent(`films-list--extra`, `Top rated`, false)

@@ -20,4 +20,8 @@ export class Component {
 
     return this.element
   }
+
+  removeElement() {
+    this.element = null
+  }
 }
