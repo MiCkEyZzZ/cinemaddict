@@ -1,8 +1,10 @@
 import {createElement} from '../utils/renders'
 
 export class Component {
+  #element
+
   constructor() {
-    this.element = null
+    this.#element = null
 
     if (new.target === Component) {
       throw new Error(`Can't instantiate Abstract, only concrete one.`)
@@ -14,14 +16,14 @@ export class Component {
   }
 
   getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate())
+    if (!this.#element) {
+      this.#element = createElement(this.getTemplate())
     }
 
-    return this.element
+    return this.#element
   }
 
   removeElement() {
-    this.element = null
+    this.#element = null
   }
 }

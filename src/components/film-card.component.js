@@ -2,14 +2,17 @@ import {Component} from '../core/component'
 import {createFilmCardTemplate} from '../templates/film-card.template'
 
 export class FilmCardComponent extends Component {
-  constructor(films) {
+  #element
+  #film
+
+  constructor(film) {
     super()
 
-    this.element = null
-    this.films = films
+    this.#element = null
+    this.#film = film
   }
 
   getTemplate() {
-    return createFilmCardTemplate(this.films)
+    return createFilmCardTemplate(this.#film)
   }
 }
