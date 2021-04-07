@@ -6,19 +6,24 @@ const createControlBtn = (name, labelName, isActive) => {
   `
 }
 
-export const createFilmCardTemplate = () => {
-  const title = `The Dance of Life`
-  const rating = `8.3`
-  const year = `1929`
-  const duration = `1h 55m`
-  const genre = `Musical`
-  const poster = `/src/img/the-dance-of-life.jpg`
-  const description = `Burlesque comic Ralph "Skid" Johnson (Skelly), and specialty dancer Bonny Lee King (Carroll), end up together on a cold, rainy night at a tr…`
-  const comments = `5`
+export const createFilmCardTemplate = (film) => {
+  const {
+    filmInfo,
+    isWatchlist,
+    isWatched,
+    isFavorite,
+    comments
+  } = film
 
-  const isWatchlist = true
-  const isWatched = true
-  const isFavorite = true
+  const {
+    title,
+    rating,
+    year,
+    duration,
+    genre,
+    poster,
+    description
+  } = filmInfo
 
   const watchlistClassName = createControlBtn(`add-to-watchlist`, `Add to watchlist`, isWatchlist)
   const watchedClassName = createControlBtn(`mark-as-watched`, `Mark as watched`, isWatched)
