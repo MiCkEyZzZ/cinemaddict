@@ -5,4 +5,8 @@ export class LoadMoreComponent extends Component {
   getTemplate() {
     return createLoadMoreTemplate()
   }
+
+  setHandleClick(cb) {
+    this.getElement().addEventListener(`click`, cb)
+  }
 }
